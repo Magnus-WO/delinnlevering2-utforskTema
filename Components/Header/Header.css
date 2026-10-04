@@ -1,0 +1,8 @@
+.Header {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: var(--space-lg);
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+}

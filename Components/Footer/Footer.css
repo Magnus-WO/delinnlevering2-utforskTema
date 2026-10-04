@@ -1,0 +1,4 @@
+.Footer {
+  border-top: 1px solid lightgray;
+  margin-top: var(--space-lg);
+}
