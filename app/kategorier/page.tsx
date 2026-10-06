@@ -2,11 +2,11 @@ import { notFound } from "next/navigation";
 import { log } from "console";
 import Image from "next/image";
 
-import "./recipesPage.css";
+import "./categoriesPage.css";
 import { type Category, type Categories } from "@/types/types";
-import Card from "@/Components/Card/Card";
+import CategoryCard from "@/Components/CategoryCard/CategoryCard";
 
-export default async function RecipiesPage() {
+export default async function CategoriesPage() {
   const apiKey = process.env.MEALDB_API_KEY;
   const apiURL = process.env.MEALDB_API_URL;
 
@@ -21,16 +21,9 @@ export default async function RecipiesPage() {
       <p>Her kan du finne (omtrent) alle oppskrifter.</p>
       <p>I starten viser siden en liste over forskjellige matkategorier</p>
       <section className="displaySection">
-        <ul>
-          {categories.map((category: Category) => (
-            <Card
-              id={category.idCategory}
-              description={category.strCategoryDescription}
-              name={category.strCategory}
-              imageSrc={category.strCategoryThumb}
-            />
-          ))}
-        </ul>
+        {categories.map((category: Category) => (
+          <CategoryCard item={category} key={category.idCategory} />
+        ))}
       </section>
     </>
   );

@@ -1,11 +1,92 @@
 :root {
-  /* Spacing */
+  /* Backgrounds */
+  --color-bg: #12100f;
+  --color-surface: #1c1816;
+  --color-surface-raised: #27201d;
+  --color-surface-hover: #332925;
 
+  /* Witchy greens */
+  --color-herb: #526b45;
+  --color-herb-dark: #35452f;
+  --color-moss: #727b4a;
+  --color-poison: #a8c45a;
+
+  /* Potion / magical accents */
+  --color-potion: #7d3f68;
+  --color-potion-glow: #b85c91;
+  --color-ember: #c4773b;
+  --color-copper: #a96845;
+
+  /* Text */
+  --color-text: #e6dcc8;
+  --color-text-muted: #a89d89;
+  --color-text-subtle: #756c5e;
+  --color-text-on-accent: #17130f;
+
+  /* Borders */
+  --color-border: #3b312a;
+  --color-border-bright: #66523f;
+
+  /* Recipe-specific */
+  --color-ingredient: #b9c58a;
+  --color-instruction: #d8cbb5;
+  --color-time: #c98b56;
+
+  /* Typography */
+  --font-display: "Cinzel", "Georgia", serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Shape */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.875rem;
+  --radius-cauldron: 50%;
+
+  /* Shadows */
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 24px rgba(168, 196, 90, 0.18);
+
+  /* Potion glow */
+  --glow-poison:
+    0 0 12px rgba(168, 196, 90, 0.35), 0 0 35px rgba(168, 196, 90, 0.12);
+
+  /* Texture */
+  --texture-opacity: 0.035;
+
+  /* Animation */
+  --transition-magical: 180ms ease-out;
+
+  /* Spacing */
   --space-sm: 0.5rem;
   --space-md: 1.2rem;
   --space-lg: 2.4rem;
   --space-xl: 5rem;
   --space-2xl: 7rem;
+
+  --letter-spacing: 0.02em;
+
+  /* Font size */
+
+  /* Base */
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  /* UI */
+  --font-size-button: 0.875rem;
+  --font-size-label: 0.8125rem;
+
+  /* Recipe content */
+  --font-size-ingredient: 1rem;
+  --font-size-instruction: 1rem;
+  --font-size-intro: 1.125rem;
+
+  /* Headings */
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
 }
 
 * {
@@ -16,7 +97,9 @@
 
 body {
   font-size: 16px;
-  color: black;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
 
   display: grid;
   grid-template-columns: minmax(0rem, 1fr) minmax(0, 68.75rem) minmax(0rem, 1fr);
@@ -24,6 +107,32 @@ body {
 
 li {
   list-style: none;
+}
+
+a {
+  color: var(--color-poison);
+  letter-spacing: var(--letter-spacing);
+  font-size: var(--font-size-h4);
+  text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
+  color: var(--color-ingredient);
+  text-shadow: var(--shadow-glow);
+  transition: all var(--transition-magical);
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
 }
 
 .appContainer {
@@ -40,4 +149,64 @@ li {
   main {
     flex: 1;
   }
+}
+
+/* Styling for alle cards */
+.Card {
+  padding: var(--space-md);
+  background: linear-gradient(
+    145deg,
+    rgba(53, 45, 39, 0.95),
+    rgba(27, 23, 21, 0.98)
+  );
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-card);
+
+  color: var(--color-text);
+  transition: var(--transition-magical);
+
+  & > * + * {
+    margin-top: var(--space-md);
+  }
+  img {
+    display: block;
+    margin-inline: auto;
+  }
+  a {
+    display: inline-block;
+    color: var(--color-potion-glow);
+    transition: var(--transition-magical);
+  }
+  a:hover {
+    color: var(--color-text);
+    text-shadow: 0 0 10px var(--color-potion-glow);
+  }
+}
+
+.Card:hover {
+  border-color: var(--color-herb);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+img {
+  border-radius: var(--radius-cauldron);
+}
+
+.search {
+  background: rgba(18, 16, 15, 0.85);
+  border: 1px solid var(--color-border-bright);
+  color: var(--color-text);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.search:focus {
+  outline: none;
+  border-color: var(--color-poison);
+  box-shadow: var(--glow-poison);
 }

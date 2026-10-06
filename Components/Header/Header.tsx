@@ -6,7 +6,7 @@ export default function Header() {
     <header className="Header">
       <nav>
         <Link href={"/"}>Hjem</Link>
-        <Link href={"/recipes"}>Oppskrifter</Link>
+        <Link href={"/kategorier"}>Kategorier</Link>
       </nav>
     </header>
   );

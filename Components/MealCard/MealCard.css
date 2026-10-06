@@ -1,0 +1,11 @@
+.MealCard {
+  h2 {
+    font-family: var(--font-display);
+    color: var(--color-text);
+    letter-spacing: var(--letter-spacing);
+  }
+
+  p {
+    color: var(--color-ingredient);
+  }
+}

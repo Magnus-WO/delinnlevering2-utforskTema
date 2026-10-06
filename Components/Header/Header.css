@@ -1,5 +1,6 @@
 .Header {
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid var(--color-moss);
+
   margin-bottom: var(--space-lg);
   nav {
     display: flex;

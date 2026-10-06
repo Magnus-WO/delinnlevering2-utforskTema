@@ -1,0 +1,16 @@
+.CategoryCard {
+  grid-row: span 4;
+  h2 {
+    font-family: var(--font-display);
+    color: var(--color-text);
+    letter-spacing: var(--letter-spacing);
+  }
+
+  p {
+    color: var(--color-ingredient);
+
+    height: 150px;
+    overflow-y: auto;
+    line-height: var(--space-md);
+  }
+}
