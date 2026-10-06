@@ -7,17 +7,12 @@ import { type Category, type Categories } from "@/types/types";
 import Card from "@/Components/Card/Card";
 
 export default async function RecipiesPage() {
-  const apiKey = process.env.API_KEY;
-  const apiURL = process.env.API_URL;
-  const response = await fetch(`${apiURL}/${apiKey}/categories.php`);
+  const apiKey = process.env.MEALDB_API_KEY;
+  const apiURL = process.env.MEALDB_API_URL;
 
-  if (!response.ok) {
-    notFound();
-  }
+  const responseCategories = fetch(`${apiURL}/${apiKey}/categories.php`);
 
-  const data = await response.json();
-
-  const categories: Categories = data.categories;
+  const { categories } = await (await responseCategories).json();
   log(categories);
 
   return (
@@ -27,7 +22,7 @@ export default async function RecipiesPage() {
       <p>I starten viser siden en liste over forskjellige matkategorier</p>
       <section className="displaySection">
         <ul>
-          {categories.map((category) => (
+          {categories.map((category: Category) => (
             <Card
               id={category.idCategory}
               description={category.strCategoryDescription}
