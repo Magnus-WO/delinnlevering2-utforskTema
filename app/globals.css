@@ -48,8 +48,7 @@
   --shadow-glow: 0 0 24px rgba(168, 196, 90, 0.18);
 
   /* Potion glow */
-  --glow-poison:
-    0 0 12px rgba(168, 196, 90, 0.35), 0 0 35px rgba(168, 196, 90, 0.12);
+  --glow-poison-shadow: 0 0 12px #a8c45a59, 0 0 35px #a8c45a1f;
 
   /* Texture */
   --texture-opacity: 0.035;

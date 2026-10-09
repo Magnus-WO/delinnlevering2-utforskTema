@@ -14,7 +14,9 @@ export default function MealCard({ meal }: MealCardProps) {
       <h2>{meal.strMeal}</h2>
       <p>Område: {meal.strArea}</p>
       <p>Land: {meal.strCountry}</p>
-      {/* <Link href={`/`}></Link> */}
+      <Link href={`/kategorier/${meal.strMeal}/${meal.idMeal}`}>
+        Se oppskrift for {meal.strMeal}
+      </Link>
     </article>
   );
 }

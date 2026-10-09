@@ -17,9 +17,15 @@ export default async function CategoriesPage() {
 
   return (
     <>
-      <h1>Oppskrifter</h1>
-      <p>Her kan du finne (omtrent) alle oppskrifter.</p>
-      <p>I starten viser siden en liste over forskjellige matkategorier</p>
+      <h1>Kategorier</h1>
+      <p>Her kan du finne (omtrent) alle kategorier for mat.</p>
+      <p>
+        Du kan for eksempel bruke denne til å finne inspirasjon til hva du vil
+        lage.
+      </p>
+      <p>
+        Bare velg typen mat, og skroll deg gjennom de fantastiske fristelsene!
+      </p>
       <section className="displaySection">
         {categories.map((category: Category) => (
           <CategoryCard item={category} key={category.idCategory} />
