@@ -1,36 +1,67 @@
-import { notFound } from "next/navigation";
 import { log } from "console";
-import Image from "next/image";
 
 import "./categoriesPage.css";
-import { type Category, type Categories } from "@/types/types";
+import { Meal, Meals, type Category } from "@/types/types";
 import CategoryCard from "@/Components/CategoryCard/CategoryCard";
+import FilterSelector from "@/Components/FilterSelector/FilterSelector";
+import MealCard from "@/Components/MealCard/MealCard";
 
-export default async function CategoriesPage() {
+export type CategoriesPageProps = {
+  searchParams: Promise<{ q?: string }>;
+};
+
+export default async function CategoriesPage({
+  searchParams,
+}: CategoriesPageProps) {
   const apiKey = process.env.MEALDB_API_KEY;
   const apiURL = process.env.MEALDB_API_URL;
+  const { q } = await searchParams;
 
-  const responseCategories = fetch(`${apiURL}/${apiKey}/categories.php`);
+  log("q er", q);
+  let responseCategories;
 
-  const { categories } = await (await responseCategories).json();
-  log(categories);
+  let mealArray = [];
+  responseCategories = await fetch(`${apiURL}/${apiKey}/categories.php`);
+  const { categories } = await responseCategories.json();
+
+  if (q) {
+    responseCategories = await fetch(`${apiURL}/${apiKey}/filter.php?c=${q}`);
+    const { meals } = await responseCategories.json();
+    mealArray = meals;
+    log("meals er", mealArray);
+  }
 
   return (
-    <>
+    <section className="CategoriesPage">
       <h1>Kategorier</h1>
-      <p>Her kan du finne (omtrent) alle kategorier for mat.</p>
-      <p>
-        Du kan for eksempel bruke denne til å finne inspirasjon til hva du vil
-        lage.
-      </p>
-      <p>
-        Bare velg typen mat, og skroll deg gjennom de fantastiske fristelsene!
-      </p>
-      <section className="displaySection">
-        {categories.map((category: Category) => (
-          <CategoryCard item={category} key={category.idCategory} />
-        ))}
+      <section className="CategoriesPageHeader">
+        <div>
+          <p>Her kan du finne (omtrent) alle kategorier for mat.</p>
+          <p>
+            Du kan for eksempel bruke denne til å finne inspirasjon til hva du
+            vil lage.
+          </p>
+          <p>
+            Bare velg typen mat, og skroll deg gjennom de fantastiske
+            fristelsene!
+          </p>
+        </div>
+        <FilterSelector as="h2" categories={categories} />
       </section>
-    </>
+
+      {mealArray.length === 0 ? (
+        <section className="displaySection">
+          {categories.map((category: Category) => (
+            <CategoryCard key={category.idCategory} item={category} />
+          ))}
+        </section>
+      ) : (
+        <section className="displaySection">
+          {mealArray.map((meal: Meal) => (
+            <MealCard key={meal.idMeal} meal={meal} />
+          ))}
+        </section>
+      )}
+    </section>
   );
 }

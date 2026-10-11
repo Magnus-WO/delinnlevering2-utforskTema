@@ -1,0 +1,28 @@
+.FilterSelector {
+  margin-top: var(--space-sm);
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+
+  h2 {
+    font-size: var(--font-size-h3);
+    color: var(--color-text);
+  }
+  select {
+    background: var(--card-bg);
+    color: var(--color-text);
+    margin: 0;
+    padding: var(--space-xs);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--space-xs);
+    font-size: var(--font-size-ingredient);
+  }
+  select:hover {
+    cursor: pointer;
+    color: var(--color-poison);
+    box-shadow: var(--shadow-glow);
+    transition: all 200ms ease;
+  }
+}

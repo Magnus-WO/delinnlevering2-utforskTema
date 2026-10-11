@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import "./categoryPage.css";
-import { log } from "console";
+
 import { type Meal, type Meals } from "@/types/types";
 import MealCard from "@/Components/MealCard/MealCard";
 import PaginationControls from "../../../Components/PaginationControls/PaginationControls";

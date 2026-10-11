@@ -4,7 +4,11 @@
   --color-surface: #1c1816;
   --color-surface-raised: #27201d;
   --color-surface-hover: #332925;
-
+  --card-bg: linear-gradient(
+    145deg,
+    rgba(53, 45, 39, 0.95),
+    rgba(27, 23, 21, 0.98)
+  );
   /* Witchy greens */
   --color-herb: #526b45;
   --color-herb-dark: #35452f;
@@ -57,6 +61,7 @@
   --transition-magical: 180ms ease-out;
 
   /* Spacing */
+  --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1.2rem;
   --space-lg: 2.4rem;
@@ -124,14 +129,17 @@ a:hover {
 
 h1 {
   font-size: clamp(2rem, 5vw, 2.5rem);
+  color: var(--color-potion-glow);
 }
 
 h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--color-potion-glow);
 }
 
 h3 {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
+  color: var(--color-potion-glow);
 }
 
 .appContainer {
@@ -153,11 +161,7 @@ h3 {
 /* Styling for alle cards */
 .Card {
   padding: var(--space-md);
-  background: linear-gradient(
-    145deg,
-    rgba(53, 45, 39, 0.95),
-    rgba(27, 23, 21, 0.98)
-  );
+  background: var(--card-bg);
 
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
