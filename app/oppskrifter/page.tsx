@@ -1,10 +1,7 @@
-import { log } from "console";
-
 import "./categoriesPage.css";
-import { Meal, Meals, type Category } from "@/types/types";
-import CategoryCard from "@/Components/CategoryCard/CategoryCard";
+
 import FilterSelector from "@/Components/FilterSelector/FilterSelector";
-import MealCard from "@/Components/MealCard/MealCard";
+import CardsDisplay from "@/Components/CardsDisplay/CardsDisplay";
 
 export type CategoriesPageProps = {
   searchParams: Promise<{ q?: string }>;
@@ -17,7 +14,6 @@ export default async function CategoriesPage({
   const apiURL = process.env.MEALDB_API_URL;
   const { q } = await searchParams;
 
-  log("q er", q);
   let responseCategories;
 
   let mealArray = [];
@@ -28,7 +24,6 @@ export default async function CategoriesPage({
     responseCategories = await fetch(`${apiURL}/${apiKey}/filter.php?c=${q}`);
     const { meals } = await responseCategories.json();
     mealArray = meals;
-    log("meals er", mealArray);
   }
 
   return (
@@ -48,20 +43,7 @@ export default async function CategoriesPage({
         </div>
         <FilterSelector as="h2" categories={categories} />
       </section>
-
-      {mealArray.length === 0 ? (
-        <section className="displaySection">
-          {categories.map((category: Category) => (
-            <CategoryCard key={category.idCategory} item={category} />
-          ))}
-        </section>
-      ) : (
-        <section className="displaySection">
-          {mealArray.map((meal: Meal) => (
-            <MealCard key={meal.idMeal} meal={meal} />
-          ))}
-        </section>
-      )}
+      <CardsDisplay meals={mealArray} categories={categories} />
     </section>
   );
 }

@@ -37,8 +37,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <MealCard meal={meal} key={meal.idMeal} />
         ))}
       </section>
-      <PaginationControls />
-      {/* Style paginationControls og legge til pagination */}
     </section>
   );
 }

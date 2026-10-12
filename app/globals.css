@@ -53,6 +53,7 @@
 
   /* Potion glow */
   --glow-poison-shadow: 0 0 12px #a8c45a59, 0 0 35px #a8c45a1f;
+  --glow-potion-shadow: 0 0 12px #b85c91, 0 0 35px #7d3f68;
 
   /* Texture */
   --texture-opacity: 0.035;
@@ -97,6 +98,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  &:focus {
+    outline: 2px solid var(--color-ember);
+    outline-offset: 2px;
+    border-radius: var(--space-xs);
+  }
 }
 
 body {
@@ -129,17 +135,17 @@ a:hover {
 
 h1 {
   font-size: clamp(2rem, 5vw, 2.5rem);
-  color: var(--color-potion-glow);
+  color: var(--color-ember);
 }
 
 h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
-  color: var(--color-potion-glow);
+  color: var(--color-ember);
 }
 
 h3 {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
-  color: var(--color-potion-glow);
+  color: var(--color-ember);
 }
 
 .appContainer {
@@ -162,6 +168,7 @@ h3 {
 .Card {
   padding: var(--space-md);
   background: var(--card-bg);
+  max-width: 500px;
 
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -170,10 +177,11 @@ h3 {
 
   color: var(--color-text);
   transition: var(--transition-magical);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  justify-content: space-between;
 
-  & > * + * {
-    margin-top: var(--space-md);
-  }
   img {
     display: block;
     margin-inline: auto;
@@ -198,18 +206,4 @@ h3 {
 
 img {
   border-radius: var(--radius-cauldron);
-}
-
-.search {
-  background: rgba(18, 16, 15, 0.85);
-  border: 1px solid var(--color-border-bright);
-  color: var(--color-text);
-  border-radius: 999px;
-  box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.35);
-}
-
-.search:focus {
-  outline: none;
-  border-color: var(--color-poison);
-  box-shadow: var(--glow-poison);
 }

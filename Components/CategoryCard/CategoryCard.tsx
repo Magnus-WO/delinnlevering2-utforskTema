@@ -18,7 +18,7 @@ export default function CategoryCard({ item }: CardProps) {
       ></Image>
       <h2>{item.strCategory}</h2>
       <p>{item.strCategoryDescription}</p>
-      <Link href={`/kategorier/${item.strCategory}`}>
+      <Link href={`/oppskrifter/${item.strCategory}`}>
         Gå til {item.strCategory}
       </Link>
     </article>

@@ -1,0 +1,95 @@
+/* Shared button styles */
+Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+
+  padding: 0.75rem 1.5rem;
+  border: var(--space-xs) solid transparent;
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-body);
+  font-size: var(--font-size-button);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing);
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    background var(--transition-magical),
+    border-color var(--transition-magical),
+    color var(--transition-magical),
+    box-shadow var(--transition-magical),
+    transform var(--transition-magical);
+}
+
+Button:focus-visible {
+  outline: 2px solid var(--color-poison);
+  outline-offset: 3px;
+}
+
+Button:disabled,
+Button[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* PRIMARY — Potion / herbal magic */
+.Button-primary {
+  color: var(--color-text-on-accent);
+  background: var(--color-poison);
+  border-color: var(--color-poison);
+  box-shadow: var(--shadow-glow);
+}
+
+.Button-primary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-poison);
+  border-color: var(--color-poison);
+  box-shadow: var(--glow-poison-shadow);
+  transform: translateY(-2px);
+}
+
+.Button-primary:active:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-moss);
+  border-color: var(--color-moss);
+  box-shadow: none;
+  transform: translateY(0) scale(0.98);
+}
+
+/* SECONDARY — Enchanted relic */
+.Button-secondary {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-color: var(--color-border-bright);
+}
+
+.Button-secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-text);
+  background: var(--color-surface-hover);
+  border-color: var(--color-copper);
+  box-shadow: 0 0 14px rgba(169, 104, 69, 0.12);
+  transform: translateY(-1px);
+}
+
+.Button-secondary:active:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-time);
+  background: var(--color-surface-raised);
+  border-color: var(--color-copper);
+  box-shadow: none;
+  transform: translateY(0) scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Button {
+    transition: none;
+  }
+
+  .Button-primary:hover:not(:disabled):not([aria-disabled="true"]),
+  .Button-secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+    transform: none;
+  }
+}

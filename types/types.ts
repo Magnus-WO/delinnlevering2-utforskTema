@@ -61,6 +61,7 @@ export type Meal = {
 };
 
 export type Ingredient = {
+  id: number;
   ingredient: string;
   measure: string;
 };

@@ -2,12 +2,12 @@
   grid-row: span 4;
   h2 {
     font-family: var(--font-display);
-    color: var(--color-text);
+    color: var(--color-ingredient);
     letter-spacing: var(--letter-spacing);
   }
 
   p {
-    color: var(--color-ingredient);
+    color: var(--color-text);
 
     height: 150px;
     overflow-y: auto;

@@ -1,4 +1,3 @@
-import { log } from "console";
 import "./mealPage.css";
 import { notFound } from "next/navigation";
 import { Ingredient, Meal } from "@/types/types";
@@ -22,7 +21,7 @@ export default async function MealPage({ params }: MealPageProps) {
   const data = await responseMeal.json();
 
   const meal: Meal = data.meals[0];
-  log(meal);
+
   // Burde være i en funksjon?
   const instructions = meal.strInstructions;
   const instructionsArray = instructions.split("\r\n");
@@ -37,12 +36,12 @@ export default async function MealPage({ params }: MealPageProps) {
       const ingredient = meal[`strIngredient${index + 1}` as keyof Meal];
       const measure = meal[`strMeasure${index + 1}` as keyof Meal];
       return {
+        id: index + 1,
         ingredient: typeof ingredient === "string" ? ingredient.trim() : "",
         measure: typeof measure === "string" ? measure.trim() : "",
       };
     },
   ).filter((item) => item.ingredient !== "");
-  log(mealIngredients);
 
   return (
     <section className="MealPage">
@@ -54,7 +53,7 @@ export default async function MealPage({ params }: MealPageProps) {
           <h2>Du trenger</h2>
           <ul>
             {mealIngredients.map((ingredient) => (
-              <li className="ingredient">
+              <li className="ingredient" key={ingredient.id}>
                 <span>{ingredient.ingredient}</span>
                 <span>{ingredient.measure}</span>
               </li>
