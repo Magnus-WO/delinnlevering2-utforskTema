@@ -1,0 +1,10 @@
+.CategoriesPageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: first baseline;
+  div {
+    > * + * {
+      margin-top: var(--space-sm);
+    }
+  }
+}

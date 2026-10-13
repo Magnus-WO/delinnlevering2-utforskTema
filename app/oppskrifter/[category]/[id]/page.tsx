@@ -10,6 +10,9 @@ export type MealPageProps = {
 };
 
 export default async function MealPage({ params }: MealPageProps) {
+  if (process.env.NODE_ENV === "development") {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+  }
   const { id } = await params;
   const apiKey = process.env.MEALDB_API_KEY;
   const apiURL = process.env.MEALDB_API_URL;

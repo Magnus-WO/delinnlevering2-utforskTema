@@ -1,5 +1,8 @@
+import { Suspense } from "react";
 import "./searchPage.css";
 import CardsDisplay from "@/Components/CardsDisplay/CardsDisplay";
+import Loading from "./loading";
+import { log } from "console";
 
 export type SearchPageProps = {
   searchParams: Promise<{
@@ -8,7 +11,11 @@ export type SearchPageProps = {
 };
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
+  if (process.env.NODE_ENV === "development") {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+  }
   const { q } = await searchParams;
+  log(q);
 
   const apiKey = process.env.MEALDB_API_KEY;
   const apiURL = process.env.MEALDB_API_URL;
@@ -22,7 +29,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           <h1>
             Søk: <span>{q}</span>
           </h1>
-          <CardsDisplay meals={meals} categories={[]} />
+          <Suspense fallback={<Loading />} key={q}>
+            <CardsDisplay meals={meals} categories={[]} />
+          </Suspense>
         </>
       )}
       {q || <p>Du må skrive inn i søkefeltet det du vil søke etter</p>}

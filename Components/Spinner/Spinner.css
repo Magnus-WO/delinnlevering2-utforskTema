@@ -1,0 +1,19 @@
+.Spinner {
+  border: 12px solid var(--color-border);
+  border-top: 12px solid var(--color-ember);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation-name: spin;
+  animation-duration: 1600ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

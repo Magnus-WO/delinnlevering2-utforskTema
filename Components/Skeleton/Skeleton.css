@@ -1,0 +1,110 @@
+.shimmer {
+  animation-name: shimmering;
+  animation-duration: 1200ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  background-color: #eaeaea;
+  animation-fill-mode: forwards;
+  background-image: linear-gradient(
+    to right,
+    var(--color-surface) 33%,
+    var(--color-surface-hover) 50%,
+    var(--color-surface-raised) 67%
+  );
+  background-size: 400%;
+}
+@keyframes shimmering {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.SkeletonHeading {
+  border-radius: var(--radius-md);
+  block-size: calc(2rem * 1.2);
+  margin-block-end: var(--space-lg);
+  inline-size: 60ch;
+}
+
+.SkeletonText__wrapper {
+  margin-block-end: var(--space-lg);
+  flex: 1;
+  min-width: 0;
+
+  & > * + * {
+    margin-block-start: var(--space-sm);
+  }
+}
+.SkeletonText__line {
+  block-size: var(--font-size-body);
+  border-radius: var(--radius-sm);
+  inline-size: 70%;
+  &:last-child {
+    inline-size: 30%;
+  }
+}
+
+.SkeletonImage {
+  border-radius: var(--radius-cauldron);
+}
+
+.RecipePage__image {
+  width: 300px;
+  max-width: 100%;
+  aspect-ratio: 1;
+}
+
+.RecipePage__TextWrapper,
+.RecipePage__IngredientsWrapper {
+  margin-block-start: var(--space-lg);
+  margin-block-end: var(--space-lg);
+  flex: 1;
+  min-width: 0;
+  & > * + * {
+    margin-block-start: var(--space-lg);
+  }
+}
+.RecipePage__IngredientsWrapper {
+  flex-grow: 1;
+  > * {
+    inline-size: 100%;
+    &:last-child {
+      inline-size: 100%;
+    }
+  }
+}
+
+.SkeletonCard {
+  min-block-size: 470px;
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  justify-content: space-between;
+
+  & > * {
+    border-radius: var(--radius-sm);
+  }
+
+  .SkeletonCard__image {
+    width: 200;
+    max-width: 100%;
+    aspect-ratio: 1;
+    display: block;
+    border-radius: var(--radius-cauldron);
+    margin-inline: auto;
+  }
+  .SkeletonCard__heading {
+    height: var(--font-size-h2);
+    width: 60%;
+  }
+
+  .SkeletonCard__link {
+    height: var(--font-size-ingredient);
+    width: 20ch;
+  }
+}

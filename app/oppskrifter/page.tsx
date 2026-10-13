@@ -1,4 +1,4 @@
-import "./categoriesPage.css";
+import "./recepiesPage.css";
 
 import FilterSelector from "@/Components/FilterSelector/FilterSelector";
 import CardsDisplay from "@/Components/CardsDisplay/CardsDisplay";
@@ -10,6 +10,9 @@ export type CategoriesPageProps = {
 export default async function CategoriesPage({
   searchParams,
 }: CategoriesPageProps) {
+  if (process.env.NODE_ENV === "development") {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+  }
   const apiKey = process.env.MEALDB_API_KEY;
   const apiURL = process.env.MEALDB_API_URL;
   const { q } = await searchParams;
@@ -27,7 +30,7 @@ export default async function CategoriesPage({
   }
 
   return (
-    <section className="CategoriesPage">
+    <>
       <h1>Kategorier</h1>
       <section className="CategoriesPageHeader">
         <div>
@@ -44,6 +47,6 @@ export default async function CategoriesPage({
         <FilterSelector as="h2" categories={categories} />
       </section>
       <CardsDisplay meals={mealArray} categories={categories} />
-    </section>
+    </>
   );
 }
