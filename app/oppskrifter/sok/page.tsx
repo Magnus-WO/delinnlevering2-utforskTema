@@ -11,9 +11,9 @@ export type SearchPageProps = {
 };
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-  if (process.env.NODE_ENV === "development") {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-  }
+  // if (process.env.NODE_ENV === "development") {
+  //   await new Promise((resolve) => setTimeout(resolve, 5000));
+  // }
   const { q } = await searchParams;
   log(q);
 

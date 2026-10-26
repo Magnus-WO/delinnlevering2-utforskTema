@@ -23,9 +23,10 @@ export default function FilterSelector({
 
     const filter = e.target.value;
     if (!filter) {
-      params.delete(`q `);
+      params.delete(`q`);
     } else {
       params.set(`q`, filter);
+      console.log(params);
     }
     replace(`${pathName}?${params.toString()}`);
   }

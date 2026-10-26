@@ -1,0 +1,49 @@
+.LandingPage {
+  margin-top: var(--space-2xl);
+
+  .text__green {
+    color: var(--color-moss);
+    margin-inline-end: var(--space-xs);
+  }
+  .text__brown {
+    color: var(--color-border-bright);
+    margin-inline-end: var(--space-xs);
+  }
+  .text__orange {
+    margin-inline-end: var(--space-xs);
+    color: var(--color-ember);
+  }
+}
+
+.landingPage__styleContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm);
+  border-bottom: 2px dotted var(--color-border-bright);
+
+  .MealCard__landingPage {
+    gap: var(--space-md);
+    min-width: 300px;
+  }
+  .randomMealBtn {
+    background-color: var(--color-copper);
+    padding: var(--space-xs);
+    color: var(--color-text);
+    transition: all 150ms ease;
+  }
+  .randomMealBtn:hover {
+    cursor: pointer;
+    background-color: var(--color-ember);
+    box-shadow: var(--shadow-glow);
+  }
+  .randomMealBtn:active {
+    background-color: var(--color-copper);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+    transform: translateY(2px);
+  }
+}
+.landingPage__styleContainer:last-of-type {
+  margin-top: var(--space-2xl);
+  justify-content: space-between;
+}

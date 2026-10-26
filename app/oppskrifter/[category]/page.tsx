@@ -12,9 +12,9 @@ export type CategoryPageProps = {
 };
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  if (process.env.NODE_ENV === "development") {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-  }
+  // if (process.env.NODE_ENV === "development") {
+  //   await new Promise((resolve) => setTimeout(resolve, 5000));
+  // }
   const { category } = await params;
   const apiKey = process.env.MEALDB_API_KEY;
   const apiURL = process.env.MEALDB_API_URL;
