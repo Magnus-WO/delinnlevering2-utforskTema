@@ -3,7 +3,7 @@ import "./categoryPage.css";
 
 import { type Meal, type Meals } from "@/types/types";
 import MealCard from "@/Components/MealCard/MealCard";
-import PaginationControls from "../../../Components/PaginationControls/PaginationControls";
+
 import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
 
 export type CategoryPageProps = {

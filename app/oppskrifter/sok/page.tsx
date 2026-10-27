@@ -4,7 +4,6 @@ import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
 
 import { Suspense } from "react";
 import Loading from "./loading";
-import { log } from "console";
 
 export type SearchPageProps = {
   searchParams: Promise<{

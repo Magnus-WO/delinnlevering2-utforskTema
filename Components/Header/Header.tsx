@@ -9,11 +9,12 @@ export default function Header() {
       <nav>
         <Link href={"/"}>Hjem</Link>
         <Link href={"/oppskrifter"}>Oppskrifter</Link>
+        <Link href={"/næringsinnhold"}>Næringsinnhold</Link>
+        <Link href={"/om"}>Om</Link>
       </nav>
       <Form action={"/oppskrifter/sok"}>
         <div className="HeaderSearch__container">
           <input type="text" name="q" />
-          {/* <button type="submit">🔮</button> */}
           <Button
             type="submit"
             className={"Button-primary HeaderSearch__button"}

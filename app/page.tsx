@@ -40,7 +40,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <>
-      <h1>Forside</h1>
+      <h1>Alkemistens Almanakk</h1>
       <section className="LandingPage">
         <div className="landingPage__styleContainer">
           <MealCard

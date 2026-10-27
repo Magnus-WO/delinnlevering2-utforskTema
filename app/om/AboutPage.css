@@ -1,0 +1,21 @@
+.AboutPage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+
+  h2 {
+    color: var(--color-text);
+    span {
+      color: var(--color-potion-glow);
+    }
+  }
+  div {
+    line-height: var(--space-lg);
+    font-size: var(--font-size-intro);
+    p {
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
