@@ -2,6 +2,7 @@ import "./mealPage.css";
 import { notFound } from "next/navigation";
 import { Ingredient, Meal } from "@/types/types";
 import Image from "next/image";
+import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
 
 export type MealPageProps = {
   params: Promise<{
@@ -47,35 +48,46 @@ export default async function MealPage({ params }: MealPageProps) {
   ).filter((item) => item.ingredient !== "");
 
   return (
-    <section className="MealPage">
-      <h1>{meal.strMeal}</h1>
-      <div>
-        <Image src={meal.strMealThumb} alt="" height={300} width={300}></Image>
+    <>
+      {meal === undefined || meal === null ? (
+        <ErrorMessage message="Kunne ikke hente oppskriften akkurat nå. Prøv igjen senere." />
+      ) : (
+        <section className="MealPage">
+          <h1>{meal.strMeal}</h1>
+          <div>
+            <Image
+              src={meal.strMealThumb}
+              alt=""
+              height={300}
+              width={300}
+            ></Image>
 
-        <section className="ingredients">
-          <h2>Du trenger</h2>
-          <ul>
-            {mealIngredients.map((ingredient) => (
-              <li className="ingredient" key={ingredient.id}>
-                <span>{ingredient.ingredient}</span>
-                <span>{ingredient.measure}</span>
-              </li>
-            ))}
-          </ul>
+            <section className="ingredients">
+              <h2>Du trenger</h2>
+              <ul>
+                {mealIngredients.map((ingredient) => (
+                  <li className="ingredient" key={ingredient.id}>
+                    <span>{ingredient.ingredient}</span>
+                    <span>{ingredient.measure}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
+
+          <section className="instructions">
+            <h2>Slik gjør du:</h2>
+            <ul className="instructionsList">
+              {filteredInstructionsArray.map((instruction) => (
+                <li className="instruction" key={instruction}>
+                  <input type="checkbox" />
+                  {instruction}
+                </li>
+              ))}
+            </ul>
+          </section>
         </section>
-      </div>
-
-      <section className="instructions">
-        <h2>Slik gjør du:</h2>
-        <ul className="instructionsList">
-          {filteredInstructionsArray.map((instruction) => (
-            <li className="instruction">
-              <input type="checkbox" />
-              {instruction}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </section>
+      )}
+    </>
   );
 }

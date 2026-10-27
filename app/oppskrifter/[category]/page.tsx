@@ -4,6 +4,7 @@ import "./categoryPage.css";
 import { type Meal, type Meals } from "@/types/types";
 import MealCard from "@/Components/MealCard/MealCard";
 import PaginationControls from "../../../Components/PaginationControls/PaginationControls";
+import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
 
 export type CategoryPageProps = {
   params: Promise<{
@@ -35,11 +36,18 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <h1>{category}</h1>
         <p>Her finner du alle måltider som inneholder {category}</p>
       </header>
-      <section className="categoryMeals">
-        {meals.map((meal: Meal) => (
-          <MealCard meal={meal} key={meal.idMeal} />
-        ))}
-      </section>
+      {meals === undefined || meals === null || meals.length === 0 ? (
+        <ErrorMessage
+          message="Kunne ikke hente disse måltidene akkurat nå, prøv igjen senere."
+          tip="Det kan hende en av de andre kategoriene er mer vennlige, prøv en av de :)"
+        />
+      ) : (
+        <section className="categoryMeals">
+          {meals.map((meal: Meal) => (
+            <MealCard meal={meal} key={meal.idMeal} />
+          ))}
+        </section>
+      )}
     </section>
   );
 }
