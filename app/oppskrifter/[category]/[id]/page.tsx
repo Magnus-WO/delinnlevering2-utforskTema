@@ -64,27 +64,36 @@ export default async function MealPage({ params }: MealPageProps) {
 
             <section className="ingredients">
               <h2>Du trenger</h2>
-              <ul>
-                {mealIngredients.map((ingredient) => (
-                  <li className="ingredient" key={ingredient.id}>
-                    <span>{ingredient.ingredient}</span>
-                    <span>{ingredient.measure}</span>
-                  </li>
-                ))}
-              </ul>
+              {mealIngredients === undefined || mealIngredients.length === 0 ? (
+                <ErrorMessage message="Kunne ikke hente ingrediensene." />
+              ) : (
+                <ul>
+                  {mealIngredients.map((ingredient) => (
+                    <li className="ingredient" key={ingredient.id}>
+                      <span>{ingredient.ingredient}</span>
+                      <span>{ingredient.measure}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
           </div>
 
           <section className="instructions">
             <h2>Slik gjør du:</h2>
-            <ul className="instructionsList">
-              {filteredInstructionsArray.map((instruction) => (
-                <li className="instruction" key={instruction}>
-                  <input type="checkbox" />
-                  {instruction}
-                </li>
-              ))}
-            </ul>
+            {filteredInstructionsArray === undefined ||
+            filteredInstructionsArray.length === 0 ? (
+              <ErrorMessage message="Kunne ikke hente instrukser." />
+            ) : (
+              <ul className="instructionsList">
+                {filteredInstructionsArray.map((instruction) => (
+                  <li className="instruction" key={instruction}>
+                    <input type="checkbox" />
+                    {instruction}
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
         </section>
       )}
