@@ -2,6 +2,9 @@ import "./recepiesPage.css";
 
 import FilterSelector from "@/Components/FilterSelector/FilterSelector";
 import CardsDisplay from "@/Components/CardsDisplay/CardsDisplay";
+import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
+import { log } from "console";
+import { Meals } from "@/types/types";
 
 export type CategoriesPageProps = {
   searchParams: Promise<{ q?: string }>;
@@ -22,31 +25,47 @@ export default async function CategoriesPage({
   let mealArray = [];
   responseCategories = await fetch(`${apiURL}/${apiKey}/categories.php`);
   const { categories } = await responseCategories.json();
+  log(categories);
 
   if (q) {
     responseCategories = await fetch(`${apiURL}/${apiKey}/filter.php?c=${q}`);
     const { meals } = await responseCategories.json();
     mealArray = meals;
   }
-
+  log(mealArray);
   return (
     <>
-      <h1>Kategorier</h1>
-      <section className="CategoriesPageHeader">
-        <div>
-          <p>Her kan du finne (omtrent) alle kategorier for mat.</p>
-          <p>
-            Du kan for eksempel bruke denne til å finne inspirasjon til hva du
-            vil lage.
-          </p>
-          <p>
-            Bare velg typen mat, og skroll deg gjennom de fantastiske
-            fristelsene!
-          </p>
-        </div>
-        <FilterSelector as="h2" categories={categories} />
-      </section>
-      <CardsDisplay meals={mealArray} categories={categories} />
+      {categories.length === 0 ? (
+        <>
+          <ErrorMessage message="Kunne ikke hente oppskrifter igjen akkurat nå, prøv igjen senere." />
+        </>
+      ) : (
+        <>
+          <h1>Kategorier</h1>
+          <section className="CategoriesPageHeader">
+            <div>
+              <p>Her kan du finne (omtrent) alle kategorier for mat.</p>
+              <p>
+                Du kan for eksempel bruke denne til å finne inspirasjon til hva
+                du vil lage.
+              </p>
+              <p>
+                Bare velg typen mat, og skroll deg gjennom de fantastiske
+                fristelsene!
+              </p>
+            </div>
+            <FilterSelector as="h2" categories={categories} />
+          </section>
+          {mealArray === null ? (
+            <ErrorMessage
+              message="Kunne ikke finne oppskriftene."
+              tip="Prøv et av de andre filtrene :)"
+            />
+          ) : (
+            <CardsDisplay meals={mealArray} categories={categories} />
+          )}
+        </>
+      )}
     </>
   );
 }

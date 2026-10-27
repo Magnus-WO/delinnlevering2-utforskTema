@@ -1,0 +1,19 @@
+.ErrorMessage {
+  margin-top: var(--space-2xl);
+  line-height: var(--space-lg);
+  padding: var(--space-lg) 0;
+
+  border: 2px solid var(--color-ember);
+  text-align: center;
+  border-radius: var(--radius-md) 0;
+  border-top: none;
+  border-bottom: 2px dotted var(--color-ember);
+
+  .message {
+    font-size: var(--font-size-h4);
+  }
+
+  .tip {
+    color: var(--color-ember);
+  }
+}
