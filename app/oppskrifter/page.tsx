@@ -3,8 +3,6 @@ import "./recepiesPage.css";
 import FilterSelector from "@/Components/FilterSelector/FilterSelector";
 import CardsDisplay from "@/Components/CardsDisplay/CardsDisplay";
 import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
-import { log } from "console";
-import { Meals } from "@/types/types";
 
 export type CategoriesPageProps = {
   searchParams: Promise<{ q?: string }>;
@@ -25,14 +23,13 @@ export default async function CategoriesPage({
   let mealArray = [];
   responseCategories = await fetch(`${apiURL}/${apiKey}/categories.php`);
   const { categories } = await responseCategories.json();
-  log(categories);
 
   if (q) {
     responseCategories = await fetch(`${apiURL}/${apiKey}/filter.php?c=${q}`);
     const { meals } = await responseCategories.json();
     mealArray = meals;
   }
-  log(mealArray);
+
   return (
     <>
       {categories.length === 0 ? (
