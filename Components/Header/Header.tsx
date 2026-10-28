@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 export default function Header() {
   return (
     <header className="Header">
-      <nav>
+      <nav className="nav__big">
         <Link href={"/"}>Hjem</Link>
         <Link href={"/oppskrifter"}>Oppskrifter</Link>
         <Link href={"/tilfeldigOppskrift"}>Tilfeldig oppskrift</Link>

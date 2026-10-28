@@ -10,7 +10,7 @@ export type MealCardProps = {
 
 export default function MealCard({ meal, className }: MealCardProps) {
   return (
-    <article className={`MealCard Card ${className}`}>
+    <article className={`Card MealCard  ${className}`}>
       <Image src={meal.strMealThumb} alt="" width={200} height={200}></Image>
       <h2>{meal.strMeal}</h2>
       <p>Område: {meal.strArea}</p>
