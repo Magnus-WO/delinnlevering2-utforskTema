@@ -1,0 +1,17 @@
+.RandomMealPage {
+  div {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+
+    section {
+      height: 500px;
+    }
+  }
+
+  .randomMealPage__mealCard {
+    padding: var(--space-lg);
+  }
+}

@@ -9,7 +9,7 @@ export default function Header() {
       <nav>
         <Link href={"/"}>Hjem</Link>
         <Link href={"/oppskrifter"}>Oppskrifter</Link>
-        <Link href={"/næringsinnhold"}>Næringsinnhold</Link>
+        <Link href={"/tilfeldigOppskrift"}>Tilfeldig oppskrift</Link>
         <Link href={"/om"}>Om</Link>
       </nav>
       <Form action={"/oppskrifter/sok"}>
