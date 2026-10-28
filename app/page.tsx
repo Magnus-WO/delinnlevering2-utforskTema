@@ -15,7 +15,7 @@ export type HomeProps = {
 
 export default async function Home({ searchParams }: HomeProps) {
   // if (process.env.NODE_ENV === "development") {
-  //   await new Promise((resolve) => setTimeout(resolve, 5000));
+  //   await new Promise((resolve) => setTimeout(resolve, 30000));
   // }
 
   const apiKey = process.env.MEALDB_API_KEY;
