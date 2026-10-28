@@ -1,5 +1,4 @@
 .MealCard {
-  min-width: 15vw;
   h2 {
     font-family: var(--font-display);
     color: var(--color-text);

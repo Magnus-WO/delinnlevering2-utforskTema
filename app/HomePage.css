@@ -1,6 +1,4 @@
 .LandingPage {
-  margin-top: var(--space-2xl);
-
   .text__green {
     color: var(--color-moss);
     margin-inline-end: var(--space-xs);
@@ -28,15 +26,21 @@
     min-width: 300px;
   }
   .randomMealBtn {
-    background-color: var(--color-copper);
-    padding: var(--space-xs);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm);
     color: var(--color-text);
+    background: var(--color-surface);
+    border: 2px solid var(--color-border-bright);
     transition: all 150ms ease;
+    text-align: center;
   }
   .randomMealBtn:hover {
     cursor: pointer;
-    background-color: var(--color-ember);
-    box-shadow: var(--shadow-glow);
+    color: var(--color-text);
+    background: var(--color-surface-hover);
+    border: 2px solid var(--color-copper);
+    box-shadow: 0 0 14px rgba(169, 104, 69, 0.12);
+    transform: translateY(-1px);
   }
   .randomMealBtn:active {
     background-color: var(--color-copper);
@@ -47,4 +51,48 @@
 .landingPage__styleContainer:last-of-type {
   margin-top: var(--space-2xl);
   justify-content: space-between;
+}
+
+@media screen and (max-width: 850px) {
+  .LandingPage {
+    padding: 0 var(--space-lg);
+    .randomMealBtn {
+      font-size: var(--font-size-button);
+    }
+  }
+
+  .LandingPage .container-2 {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .LandingPage h1 {
+    margin-block-end: var(--space-lg);
+    text-align: center;
+  }
+  .LandingPage .container-1 {
+    padding-top: 0;
+    flex-direction: column-reverse;
+  }
+  .MealCard__landingPage {
+    margin-block-start: var(--space-lg);
+  }
+
+  .LandingPage .container-2 {
+    margin-block-start: var(--space-lg);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .LandingPage h1 {
+    font-size: var(--font-size-h3);
+  }
+  .landingPage__styleContainer .MealCard__landingPage {
+    width: 70vw;
+    min-width: 0px;
+  }
+  .LandingPage .container-2 {
+    gap: var(--space-lg);
+  }
 }

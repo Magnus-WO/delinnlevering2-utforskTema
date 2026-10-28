@@ -36,46 +36,47 @@ export default async function Home({ searchParams }: HomeProps) {
   }
 
   return (
-    <>
+    <section className="LandingPage">
       <h1>Alkemistens Almanakk</h1>
-      <section className="LandingPage">
-        <div className="landingPage__styleContainer">
-          <MealCard
-            meal={randomMeal}
-            className="MealCard__landingPage"
-          ></MealCard>
-          <section className="landingPage__text">
-            <p>
-              Trenger du hjelp til å finne oppskrifter? Usikker på hva du vil ha
-              til middag? Eller kanskje du ikke heeelt husker akkurat hvordan
-              den retten lages?
-            </p>
-            <br />
-            <p>
-              Uansett hva du lurer på angående hvordan en rett lages kan du
-              finne det her! Du kan søke opp en matrett med det{" "}
-              <span className="text__green">grønne</span>
-              søkefeltet, sortere etter forskjellige kategorier med den{" "}
-              <span className="text__brown">grå-brune</span>
-              menyen, eller du kan få en tilfeldig rett med den oransje knappen
-              dersom fantasien ikke strakk helt til i dag.
-            </p>
-            <br />
-            <p>
-              Bildet du ser gir deg et tilfeldig måltid hver gang du går inn på
-              siden på nytt, eller ved å trykke på den{" "}
-              <span className="text__orange">oransje</span> knappen.
-            </p>
-          </section>
-        </div>
-        <div className="landingPage__styleContainer">
-          <FilterSelector as="h2" categories={categories} />
-          <Link href={"/tilfeldigOppskrift"} className="Button-secondary">
-            Gi meg en tilfeldig oppskrift
-          </Link>
-          <Search actionURL="/oppskrifter/sok" />
-        </div>
-      </section>
-    </>
+      <div className="landingPage__styleContainer container-1">
+        <MealCard
+          meal={randomMeal}
+          className="MealCard__landingPage"
+        ></MealCard>
+        <section className="landingPage__text">
+          <p>
+            Trenger du hjelp til å finne oppskrifter? Usikker på hva du vil ha
+            til middag? Eller kanskje du ikke heeelt husker akkurat hvordan den
+            retten lages?
+          </p>
+          <br />
+          <p>
+            Uansett hva du lurer på angående hvordan en rett lages kan du finne
+            det her! Du kan søke opp en matrett med det{" "}
+            <span className="text__green">grønne</span>
+            søkefeltet, sortere etter forskjellige kategorier med den{" "}
+            <span className="text__brown">grå-brune</span>
+            menyen, eller du kan få en tilfeldig rett med den oransje knappen
+            dersom fantasien ikke strakk helt til i dag.
+          </p>
+          <br />
+          <p>
+            Bildet du ser gir deg et tilfeldig måltid hver gang du går inn på
+            siden på nytt, eller ved å trykke på den{" "}
+            <span className="text__orange">oransje</span> knappen.
+          </p>
+        </section>
+      </div>
+      <div className="landingPage__styleContainer container-2">
+        <FilterSelector as="h2" categories={categories} />
+        <Link
+          href={"/tilfeldigOppskrift"}
+          className="Button-secondary randomMealBtn"
+        >
+          Gi meg en tilfeldig oppskrift
+        </Link>
+        <Search actionURL="/oppskrifter/sok" />
+      </div>
+    </section>
   );
 }

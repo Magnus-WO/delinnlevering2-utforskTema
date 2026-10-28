@@ -165,6 +165,7 @@ h3 {
   padding: var(--space-md);
   background: var(--card-bg);
   max-width: 500px;
+  min-width: 15vw;
 
   border: var(--border);
   border-radius: var(--radius-md);
@@ -202,4 +203,33 @@ h3 {
 
 img {
   border-radius: var(--radius-cauldron);
+}
+
+@media screen and (max-width: 850px) {
+  .Card {
+    min-width: none;
+    width: 10vw;
+
+    h2 {
+      font-size: var(--font-size-h3);
+    }
+    a {
+      font-size: var(--font-size-body);
+    }
+    img {
+      height: 170px;
+      width: auto;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .Card {
+    font-size: var(--font-size-small);
+    img {
+      height: 100px;
+    }
+    h2 {
+      font-size: var(--font-size-ingredient);
+    }
+  }
 }
