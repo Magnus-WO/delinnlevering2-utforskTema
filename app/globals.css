@@ -131,6 +131,7 @@ a:hover {
 h1 {
   font-size: clamp(2rem, 5vw, 2.5rem);
   color: var(--color-ember);
+  margin-block-end: var(--space-xl);
 }
 
 h2 {

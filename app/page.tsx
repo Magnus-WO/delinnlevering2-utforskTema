@@ -1,10 +1,13 @@
 import "./HomePage.css";
+import "@/Components/Button/Button.css";
 import MealCard from "@/Components/MealCard/MealCard";
 import FilterSelector from "@/Components/FilterSelector/FilterSelector";
 import Search from "@/Components/Search/Search";
+
+import { Meal } from "@/typescript/types/types";
+
 import { redirect } from "next/navigation";
-import Button from "@/Components/Button/Button";
-import { Meal } from "@/types/types";
+import Link from "next/link";
 
 export type HomeProps = {
   searchParams: Promise<{ q?: string }>;
@@ -30,12 +33,6 @@ export default async function Home({ searchParams }: HomeProps) {
   const { categories } = await categoriesResponse.json();
   if (q) {
     redirect(`/oppskrifter/${q}`);
-  }
-
-  async function handleGetRandomMeal() {
-    const randomMealResponse = await fetch(`${apiURL}/${apiKey}/random.php`);
-    const { meals } = await randomMealResponse.json();
-    randomMeal = meals[0];
   }
 
   return (
@@ -73,13 +70,9 @@ export default async function Home({ searchParams }: HomeProps) {
         </div>
         <div className="landingPage__styleContainer">
           <FilterSelector as="h2" categories={categories} />
-          <Button
-            type="button"
-            className="randomMealBtn"
-            // onClick={handleGetRandomMeal}
-          >
+          <Link href={"/tilfeldigOppskrift"} className="Button-secondary">
             Gi meg en tilfeldig oppskrift
-          </Button>
+          </Link>
           <Search actionURL="/oppskrifter/sok" />
         </div>
       </section>

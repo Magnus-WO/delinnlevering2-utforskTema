@@ -1,4 +1,4 @@
-import { Meal } from "@/types/types";
+import { Meal } from "@/typescript/types/types";
 
 import "./MealCard.css";
 import Image from "next/image";

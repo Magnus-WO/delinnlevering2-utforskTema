@@ -20,6 +20,7 @@
   align-items: center;
   gap: var(--space-md);
   padding: var(--space-sm);
+  padding-bottom: var(--space-xl);
   border-bottom: 2px dotted var(--color-border-bright);
 
   .MealCard__landingPage {
