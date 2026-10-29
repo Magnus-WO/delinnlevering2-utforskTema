@@ -1,5 +1,4 @@
 .CategoryCard {
-  grid-row: span 4;
   h2 {
     font-family: var(--font-display);
     color: var(--color-ingredient);

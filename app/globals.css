@@ -203,9 +203,6 @@ img {
 
 @media screen and (max-width: 850px) {
   .Card {
-    min-width: none;
-    width: 10vw;
-
     h2 {
       font-size: var(--font-size-h3);
     }
@@ -220,7 +217,6 @@ img {
 }
 @media screen and (max-width: 500px) {
   .Card {
-    font-size: var(--font-size-small);
     img {
       height: 100px;
     }
