@@ -160,8 +160,6 @@ h3 {
 .Card {
   padding: var(--space-md);
   background: var(--card-bg);
-  max-width: 500px;
-  min-width: 15vw;
 
   border: var(--border);
   border-radius: var(--radius-md);

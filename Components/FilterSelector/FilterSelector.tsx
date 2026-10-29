@@ -26,7 +26,6 @@ export default function FilterSelector({
       params.delete(`q`);
     } else {
       params.set(`q`, filter);
-      console.log(params);
     }
     replace(`${pathName}?${params.toString()}`);
   }
