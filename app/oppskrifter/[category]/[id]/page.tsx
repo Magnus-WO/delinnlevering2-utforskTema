@@ -89,7 +89,7 @@ export default async function MealPage({ params }: MealPageProps) {
                 {filteredInstructionsArray.map((instruction) => (
                   <li className="instruction" key={instruction}>
                     <input type="checkbox" />
-                    {instruction}
+                    <span>{instruction}</span>
                   </li>
                 ))}
               </ul>
