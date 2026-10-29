@@ -24,26 +24,23 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <>
-      {q && (
-        <>
-          {meals === null ? (
-            <ErrorMessage
-              message="Det du søker etter finnes dessverre ikke. Prøv å søke på nytt."
-              tip="søk på engelsk for bedre treff :)"
-            />
-          ) : (
-            <>
-              <h1>
-                Søk: <span>{q}</span>
-              </h1>
-              <Suspense fallback={<Loading />} key={q}>
-                <CardsDisplay meals={meals} categories={[]} />
-              </Suspense>
-            </>
-          )}
-        </>
-      )}
-      {q || <p>Du må skrive inn i søkefeltet det du vil søke etter</p>}
+      <>
+        {meals === null ? (
+          <ErrorMessage
+            message="Det du søker etter finnes dessverre ikke. Prøv å søke på nytt."
+            tip="søk på engelsk for bedre treff :)"
+          />
+        ) : (
+          <>
+            <h1>
+              Søk: <span>{q}</span>
+            </h1>
+            <Suspense fallback={<Loading />} key={q}>
+              <CardsDisplay meals={meals} categories={[]} />
+            </Suspense>
+          </>
+        )}
+      </>
     </>
   );
 }

@@ -129,18 +129,18 @@ a:hover {
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(var(--font-size-h3), 10vw, var(--font-size-h1));
   color: var(--color-ember);
   margin-block-end: var(--space-xl);
 }
 
 h2 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(var(--font-size-h3), 4vw, var(--font-size-h2));
   color: var(--color-ember);
 }
 
 h3 {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-size: clamp(var(--font-size-h4), 3vw, var(--font-size-h3));
   color: var(--color-ember);
 }
 
@@ -149,11 +149,7 @@ h3 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
-  header,
-  footer {
-    padding: 1.5rem 2rem;
-  }
+  position: relative;
 
   main {
     flex: 1;

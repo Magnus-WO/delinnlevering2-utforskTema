@@ -2,19 +2,15 @@ import "./Header.css";
 import Link from "next/link";
 import Form from "next/form";
 import Button from "../Button/Button";
+import Nav from "../Nav/Nav";
 
 export default function Header() {
   return (
     <header className="Header">
-      <nav className="nav__big">
-        <Link href={"/"}>Hjem</Link>
-        <Link href={"/oppskrifter"}>Oppskrifter</Link>
-        <Link href={"/tilfeldigOppskrift"}>Tilfeldig oppskrift</Link>
-        <Link href={"/om"}>Om</Link>
-      </nav>
+      <Nav />
       <Form action={"/oppskrifter/sok"}>
         <div className="HeaderSearch__container">
-          <input type="text" name="q" />
+          <input type="search" name="q" required />
           <Button
             type="submit"
             className={"Button-primary HeaderSearch__button"}
