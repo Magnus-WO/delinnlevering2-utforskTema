@@ -1,10 +1,26 @@
+.CategoriesPage {
+  padding: 0 var(--space-lg);
+}
+
 .CategoriesPageHeader {
   display: flex;
   justify-content: space-between;
-  align-items: first baseline;
+
   div {
     > * + * {
       margin-top: var(--space-sm);
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .CategoriesPage {
+    h1 {
+      margin-block-end: var(--space-lg);
+    }
+  }
+  .CategoriesPageHeader {
+    flex-direction: column-reverse;
+    gap: var(--space-lg);
   }
 }

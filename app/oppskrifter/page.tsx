@@ -31,7 +31,7 @@ export default async function CategoriesPage({
   }
 
   return (
-    <>
+    <section className="CategoriesPage">
       {categories.length === 0 ? (
         <>
           <ErrorMessage message="Kunne ikke hente oppskrifter igjen akkurat nå, prøv igjen senere." />
@@ -63,6 +63,6 @@ export default async function CategoriesPage({
           )}
         </>
       )}
-    </>
+    </section>
   );
 }
