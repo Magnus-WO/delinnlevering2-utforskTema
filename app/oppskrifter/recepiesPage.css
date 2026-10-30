@@ -14,11 +14,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .CategoriesPage {
-    h1 {
-      margin-block-end: var(--space-lg);
-    }
-  }
   .CategoriesPageHeader {
     flex-direction: column-reverse;
     gap: var(--space-lg);

@@ -68,7 +68,6 @@
 
 @media screen and (max-width: 600px) {
   .HomePage h1 {
-    margin-block-end: var(--space-lg);
     text-align: center;
   }
   .HomePage .container-1 {
