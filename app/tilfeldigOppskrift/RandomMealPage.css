@@ -1,17 +1,34 @@
 .RandomMealPage {
+  margin-block-end: var(--space-2xl);
   div {
     margin-top: var(--space-lg);
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    justify-content: center;
     gap: var(--space-xl);
 
     section {
-      height: 500px;
+      height: 600px;
     }
   }
 
   .randomMealPage__mealCard {
     padding: var(--space-lg);
+    width: 30vw;
+    min-width: 15.625rem;
+    gap: var(--space-md);
+  }
+}
+@media screen and (max-width: 600px) {
+  .RandomMealPage {
+    div {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+      section {
+        height: 500px;
+      }
+    }
   }
 }
