@@ -46,9 +46,11 @@
 @media screen and (max-width: 600px) {
   .Footer {
     gap: var(--space-lg);
+    padding: var(--space-lg);
+    text-align: center;
     .Nav {
       ul {
-        align-items: flex-start;
+        align-items: center;
       }
     }
     .Footer__external-nav {

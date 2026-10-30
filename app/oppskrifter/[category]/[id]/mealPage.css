@@ -27,6 +27,9 @@
       }
     }
   }
+  .instructions {
+    margin-bottom: var(--space-2xl);
+  }
   .instruction {
     color: var(--color-instruction);
     margin-bottom: var(--space-md);
@@ -66,6 +69,13 @@
 
 @media screen and (max-width: 700px) {
   .MealPage {
+    padding: 0;
+    .instructions {
+      margin-bottom: var(--space-lg);
+    }
+    .instruction {
+      align-items: flex-start;
+    }
     img {
       height: 200px;
       width: 200px;

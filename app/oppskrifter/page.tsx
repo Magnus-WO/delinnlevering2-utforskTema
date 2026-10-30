@@ -39,7 +39,7 @@ export default async function CategoriesPage({
       ) : (
         <>
           <h1>Kategorier</h1>
-          <section className="CategoriesPageHeader">
+          <header className="CategoriesPageHeader">
             <div>
               <p>Her kan du finne (omtrent) alle kategorier for mat.</p>
               <p>
@@ -52,7 +52,7 @@ export default async function CategoriesPage({
               </p>
             </div>
             <FilterSelector as="h2" categories={categories} />
-          </section>
+          </header>
           {mealArray === null ? (
             <ErrorMessage
               message="Kunne ikke finne oppskriftene."
