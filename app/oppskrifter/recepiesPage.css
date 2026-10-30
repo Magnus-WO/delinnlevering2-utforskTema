@@ -1,7 +1,3 @@
-.CategoriesPage {
-  padding: 0 var(--space-lg);
-}
-
 .CategoriesPageHeader {
   display: flex;
   justify-content: space-between;
