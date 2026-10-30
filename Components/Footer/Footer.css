@@ -1,6 +1,6 @@
 .Footer {
   border-top: 1px solid var(--color-copper);
-  margin-bottom: var(--space-2xl);
+  margin: var(--space-2xl) 0;
   padding: var(--space-lg) var(--space-2xl);
 
   display: grid;

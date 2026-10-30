@@ -27,12 +27,10 @@
       }
     }
   }
-  .instructions {
-    margin-bottom: var(--space-2xl);
-  }
+
   .instruction {
     color: var(--color-instruction);
-    margin-bottom: var(--space-md);
+
     display: flex;
     align-items: center;
     gap: var(--space-sm);
