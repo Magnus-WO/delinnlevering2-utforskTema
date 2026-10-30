@@ -1,5 +1,4 @@
 .RandomMealPage {
-  margin-block-end: var(--space-2xl);
   div {
     margin-top: var(--space-lg);
     display: flex;
