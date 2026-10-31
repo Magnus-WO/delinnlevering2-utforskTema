@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import "./categoryPage.css";
 
-import { type Meal, type Meals } from "@/typescript/types/types";
-import MealCard from "@/Components/MealCard/MealCard";
+import { type Meal, type Meals } from "@/typescript/types/mealTypes";
+
 import CardsDisplay from "@/Components/CardsDisplay/CardsDisplay";
 import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
 
@@ -41,11 +41,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         />
       ) : (
         <CardsDisplay meals={meals} />
-        // <section className="categoryMeals">
-        //   {meals.map((meal: Meal) => (
-        //     <MealCard meal={meal} key={meal.idMeal} />
-        //   ))}
-        // </section>
       )}
     </section>
   );

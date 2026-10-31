@@ -1,12 +1,3 @@
-export type Category = {
-  idCategory: number;
-  strCategory: string;
-  strCategoryThumb: string;
-  strCategoryDescription: string;
-};
-
-export type Categories = Category[];
-
 export type Meal = {
   strMeal: string;
   strMealThumb: string;
@@ -59,11 +50,10 @@ export type Meal = {
   strMeasure19?: string;
   strMeasure20?: string;
 };
+export type Meals = Meal[];
 
 export type Ingredient = {
   id: number;
   ingredient: string;
   measure: string;
 };
-
-export type Meals = Meal[];

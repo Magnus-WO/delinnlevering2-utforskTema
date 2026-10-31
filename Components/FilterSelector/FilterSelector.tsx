@@ -1,5 +1,5 @@
 "use client";
-import { Categories } from "@/typescript/types/types";
+import { Categories } from "@/typescript/types/categoryTypes";
 import "./FilterSelector.css";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 

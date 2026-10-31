@@ -4,7 +4,7 @@ import MealCard from "@/Components/MealCard/MealCard";
 import FilterSelector from "@/Components/FilterSelector/FilterSelector";
 import Search from "@/Components/Search/Search";
 
-import { Meal } from "@/typescript/types/types";
+import { Meal } from "@/typescript/types/categoryTypes";
 
 import { redirect } from "next/navigation";
 import Link from "next/link";
