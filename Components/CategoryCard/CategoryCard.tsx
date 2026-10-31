@@ -1,4 +1,4 @@
-import { Category } from "@/typescript/types/types";
+import { Category } from "@/typescript/types/categoryTypes";
 import "./CategoryCard.css";
 import Image from "next/image";
 import Link from "next/link";

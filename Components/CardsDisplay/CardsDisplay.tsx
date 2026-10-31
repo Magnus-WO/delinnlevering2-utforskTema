@@ -1,4 +1,5 @@
-import { Categories, Category, Meal, Meals } from "@/typescript/types/types";
+import { Categories, Category } from "@/typescript/types/categoryTypes";
+import { Meal, Meals } from "@/typescript/types/mealTypes";
 import "./CardsDisplay.css";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import MealCard from "../MealCard/MealCard";

@@ -1,6 +1,6 @@
 import "./mealPage.css";
 
-import { Ingredient, Meal } from "@/typescript/types/types";
+import { Ingredient, Meal } from "@/typescript/types/mealTypes";
 import Image from "next/image";
 import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
 
