@@ -23,7 +23,7 @@
 
   --color-text: #e6dcc8;
   --color-text-muted: #a89d89;
-  --color-text-subtle: #756c5e;
+  --color-text-subtle: #ac9f89;
   --color-text-on-accent: #17130f;
 
   --color-border: #3b312a;
@@ -76,7 +76,7 @@
   --font-size-xs: 0.75rem;
 
   --font-size-button: 0.875rem;
-  --font-size-label: 0.8125rem;
+  --font-size-label: 1rem;
 
   --font-size-ingredient: 1rem;
   --font-size-instruction: 1rem;
@@ -146,6 +146,10 @@ h2 {
 h3 {
   font-size: clamp(var(--font-size-h4), 3vw, var(--font-size-h3));
   color: var(--color-ember);
+}
+
+label {
+  font-size: var(--font-size-h3);
 }
 
 .appContainer {
@@ -219,6 +223,9 @@ img {
 @media screen and (max-width: 500px) {
   main {
     padding: 0 var(--space-md);
+  }
+  label {
+    font-size: var(--font-size-label);
   }
   .Card {
     img {

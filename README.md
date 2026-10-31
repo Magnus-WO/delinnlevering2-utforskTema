@@ -59,3 +59,6 @@ Jeg vurderte å gjøre dette for forsiden og, men da forsiden gjør api-kall til
 Det er en irriterende visuell bug som gir knappene i footeren (de med lenker til The Meal DB og min GitHub) først en hvit border og deretter en oransj border når man hovrer over. Det har ikke noe å si for funksjonaliteten, men det er irriterende for meg.
 
 Dersom det ikke er med tall på slutten av URLen når man går til detaljsiden for en rett, får man en feilmelding laget av meg. I tillegg får man opp navnet på retten med %20 mellom ordene i tittelen. For eksempel Algerian%20Kefta%20(Meatballs)
+Sjekkboksene for instrukser på detaljsiden mangler form element rundt. Her synes jeg ikke det gir mening å sette et Form rundt sjekkboksene, da det ikke er noe som skal sendes inn av informasjon av brukeren. I etterkant hadde nok en bedre løsning vært å bruke et pseudo before-element å style det som en sjekkboks, men da vil konsekvensen være at det ikke leses opp av en skjermleser.
+
+Api-et er veldig ukonsekvent når det kommer til hvordan instruksene er lagt opp. Flere av instruksene har \r\n på starten av hver setning, noen har \n\r\n og et par har "Step 1 ..." "Step 2 ..." etc. I tillegg kommer alle instruksene for hver oppskrift som én lang streng. Jeg har gjort mitt beste for å prøve å fjerne alle tegn som \r\n, men på noen retter henger det fremdeles igjen som visuelt rot.
