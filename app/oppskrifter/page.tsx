@@ -3,7 +3,6 @@ import "./recepiesPage.css";
 import FilterSelector from "@/Components/FilterSelector/FilterSelector";
 import CardsDisplay from "@/Components/CardsDisplay/CardsDisplay";
 import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
-import { log } from "console";
 
 export type CategoriesPageProps = {
   searchParams: Promise<{ q?: string }>;
@@ -28,7 +27,7 @@ export default async function CategoriesPage({
   if (q) {
     responseCategories = await fetch(`${apiURL}/${apiKey}/filter.php?c=${q}`);
     const { meals } = await responseCategories.json();
-    log(meals);
+
     mealArray = meals;
   }
 

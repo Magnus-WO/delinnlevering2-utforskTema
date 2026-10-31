@@ -1,7 +1,7 @@
 "use client";
 
 import "./RandomMealPage.css";
-import { Meal } from "@/typescript/types/categoryTypes";
+import { Meal } from "@/typescript/types/mealTypes";
 import MealCard from "@/Components/MealCard/MealCard";
 import Button from "@/Components/Button/Button";
 import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";

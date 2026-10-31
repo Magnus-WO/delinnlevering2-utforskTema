@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import "./categoryPage.css";
 
-import { type Meal, type Meals } from "@/typescript/types/mealTypes";
+import { type Meals } from "@/typescript/types/mealTypes";
 
 import CardsDisplay from "@/Components/CardsDisplay/CardsDisplay";
 import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
