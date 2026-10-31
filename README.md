@@ -57,3 +57,5 @@ På forsiden av nettsiden er det en knapp som heter "Gi meg en tilfeldig oppskri
 Jeg vurderte å gjøre dette for forsiden og, men da forsiden gjør api-kall til flere forskjellige URLer, bestemte jeg meg for at det er en bedre brukeropplevelse at siden lastes raskere enn at knappen holder deg på siden i stedet for å sende deg til en ny side. Det er ikke sikkert alle på forsiden ønsker å bruke knappen, og da synes jeg det er bedre at siden lastes inn raskere.
 
 Det er en irriterende visuell bug som gir knappene i footeren (de med lenker til The Meal DB og min GitHub) først en hvit border og deretter en oransj border når man hovrer over. Det har ikke noe å si for funksjonaliteten, men det er irriterende for meg.
+
+Dersom det ikke er med tall på slutten av URLen når man går til detaljsiden for en rett, får man en feilmelding laget av meg. I tillegg får man opp navnet på retten med %20 mellom ordene i tittelen. For eksempel Algerian%20Kefta%20(Meatballs)

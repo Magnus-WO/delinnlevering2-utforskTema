@@ -1,5 +1,5 @@
 import "./mealPage.css";
-import { notFound } from "next/navigation";
+
 import { Ingredient, Meal } from "@/typescript/types/types";
 import Image from "next/image";
 import ErrorMessage from "@/Components/ErrorMessage/ErrorMessage";
@@ -14,15 +14,19 @@ export default async function MealPage({ params }: MealPageProps) {
   // if (process.env.NODE_ENV === "development") {
   //   await new Promise((resolve) => setTimeout(resolve, 5000));
   // }
+
   const { id } = await params;
   const apiKey = process.env.MEALDB_API_KEY;
   const apiURL = process.env.MEALDB_API_URL;
 
   const responseMeal = await fetch(`${apiURL}/${apiKey}/lookup.php?i=${id}`);
-  if (!responseMeal.ok) {
-    notFound();
-  }
+
   const data = await responseMeal.json();
+  if (!data.meals) {
+    return (
+      <ErrorMessage message="Kunne ikke hente oppskriften akkurat nå. Prøv igjen senere." />
+    );
+  }
 
   const meal: Meal = data.meals[0];
 
@@ -49,7 +53,7 @@ export default async function MealPage({ params }: MealPageProps) {
 
   return (
     <>
-      {meal === undefined || meal === null ? (
+      {!data.meals ? (
         <ErrorMessage message="Kunne ikke hente oppskriften akkurat nå. Prøv igjen senere." />
       ) : (
         <section className="MealPage">
@@ -57,7 +61,7 @@ export default async function MealPage({ params }: MealPageProps) {
           <div>
             <Image
               src={meal.strMealThumb}
-              alt=""
+              alt={meal.strMeal}
               height={300}
               width={300}
             ></Image>
