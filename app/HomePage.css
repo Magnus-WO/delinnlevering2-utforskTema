@@ -1,10 +1,10 @@
 .HomePage {
   .text__green {
-    color: var(--color-moss);
+    color: var(--color-poison);
     margin-inline-end: var(--space-xs);
   }
   .text__brown {
-    color: var(--color-border-bright);
+    color: var(--color-text-subtle);
     margin-inline-end: var(--space-xs);
   }
   .text__orange {

@@ -27,13 +27,23 @@
       }
     }
   }
-
+  .instructionsList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
   .instruction {
     color: var(--color-instruction);
 
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+
+    label {
+      height: 1px;
+      width: 1px;
+      visibility: hidden;
+    }
 
     input {
       appearance: none;
@@ -59,7 +69,7 @@
     }
 
     input:focus-visible {
-      outline: 2px solid var(--color-poison);
+      outline: 3px solid var(--color-ember);
       outline-offset: 1px;
     }
   }

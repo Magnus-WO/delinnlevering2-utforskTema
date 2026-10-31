@@ -6,14 +6,15 @@ import Form from "next/form";
 import Button from "../Button/Button";
 
 export type SearchProps = {
-  actionURL: string;
+  id: string;
 };
 
-export default function Search({ actionURL }: SearchProps) {
+export default function Search({ id }: SearchProps) {
   return (
-    <Form action={actionURL}>
+    <Form action={"/oppskrifter/sok"}>
       <div className="Search__container">
-        <input type="text" name="q" placeholder="søk" />
+        <label htmlFor={id}>Søk:</label>
+        <input type="text" name="q" required id={id} />
 
         <Button type="submit" className={"Button-primary HeaderSearch__button"}>
           🔮

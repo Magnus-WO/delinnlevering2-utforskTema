@@ -1,20 +1,23 @@
 .Search__container {
   display: flex;
   align-items: center;
-  background-color: var(--color-moss);
+  background-color: var(--color-herb);
   border-radius: var(--space-xs);
+  padding-left: var(--space-xs);
   &:focus-within {
     box-shadow: var(--shadow-glow);
 
-    background-color: var(--color-herb);
+    background-color: var(--color-moss);
     outline: 2px solid var(--color-ember);
     outline-offset: 2px;
   }
   &:hover {
     box-shadow: var(--shadow-glow);
-    background-color: var(--color-herb);
+    background-color: var(--color-moss);
   }
-
+  label {
+    font-size: var(--font-size-label);
+  }
   input {
     border: none;
     outline: none;
