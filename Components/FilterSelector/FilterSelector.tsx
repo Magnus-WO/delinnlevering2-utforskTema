@@ -4,13 +4,13 @@ import "./FilterSelector.css";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 export type FilterSelectorProps = {
-  as: "h2" | "h3" | "h4" | "h5";
   categories: Categories;
+  label: string;
 };
 
 export default function FilterSelector({
-  as,
   categories,
+  label,
 }: FilterSelectorProps) {
   const searchParams = useSearchParams();
 
@@ -30,11 +30,11 @@ export default function FilterSelector({
     replace(`${pathName}?${params.toString()}`);
   }
 
-  const Element = as;
   return (
     <div className="FilterSelector">
-      <Element>Finn:</Element>
+      <label htmlFor="select-category">{label}</label>
       <select
+        id="select-category"
         name="chooseCategory"
         onChange={(e) => {
           handleFilter(e);

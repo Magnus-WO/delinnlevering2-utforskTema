@@ -68,14 +68,14 @@ export default async function Home({ searchParams }: HomeProps) {
         </section>
       </div>
       <div className="landingPage__styleContainer container-2">
-        <FilterSelector as="h2" categories={categories} />
+        <FilterSelector categories={categories} label="Gå til:" />
         <Link
           href={"/tilfeldigOppskrift"}
           className="Button-secondary randomMealBtn"
         >
           Gi meg en tilfeldig oppskrift
         </Link>
-        <Search actionURL="/oppskrifter/sok" />
+        <Search id="homepage-search" />
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ export default function CardsDisplay({
 }: CardsDisplayProps) {
   return (
     <>
-      {categories.length > 0 ? (
+      {meals.length === 0 ? (
         <section className="CardsDisplay">
           {categories.map((category: Category) => (
             <CategoryCard key={category.idCategory} item={category} />

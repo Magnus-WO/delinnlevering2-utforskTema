@@ -88,6 +88,7 @@ export default async function MealPage({ params }: MealPageProps) {
               <ul className="instructionsList">
                 {filteredInstructionsArray.map((instruction) => (
                   <li className="instruction" key={instruction}>
+                    <label htmlFor="">Huk av</label>
                     <input type="checkbox" />
                     <span>{instruction}</span>
                   </li>

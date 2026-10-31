@@ -14,7 +14,7 @@ export default function CategoryCard({ item }: CardProps) {
         src={item.strCategoryThumb}
         width={200}
         height={200}
-        alt=""
+        alt={item.strCategory}
       ></Image>
       <h2>{item.strCategory}</h2>
       <p>{item.strCategoryDescription}</p>
